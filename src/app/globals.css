@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+:root {
+  --background: #13181E;
+  --foreground: #FFFFFF;
+}
+
+@theme inline {
+  --color-bg-inner: #1A212B;
+  --color-bg-outer: #13181E;
+  --color-secondary: #008538;
+  --color-tertiary: #FFFFFF;
+  --color-quaternary: #FFC800;
+  --color-cream: #F2EEE7;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --font-heading: var(--font-heading), sans-serif;
+  --font-body: var(--font-body), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background: radial-gradient(circle at 50% 40%, #1A212B 0%, #13181E 100%);
+  color: #FFFFFF;
+  font-family: var(--font-body), sans-serif;
+  overflow-x: clip;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+.section-bg {
+  background: radial-gradient(circle at 50% 40%, #1A212B 0%, #13181E 100%);
+}
+
+.section-bg-light {
+  background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #F2EEE7 100%);
+}
+
+/* Malha técnica sutil do fundo da hero */
+.grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  /* Ancorada na viewport: as linhas ficam paradas enquanto a pagina rola */
+  background-attachment: fixed;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 20%, transparent 78%);
+}
+
+/* Aspas tipográficas: serifada da mesma superfamília, com dourado que se dissolve */
+.quote-mark {
+  font-family: var(--font-quote), Georgia, serif;
+  font-feature-settings: "kern" 1;
+  line-height: 0.7;
+  background-image: linear-gradient(
+    170deg,
+    rgba(255, 200, 0, 0.5) 0%,
+    rgba(255, 200, 0, 0.16) 48%,
+    rgba(255, 200, 0, 0) 88%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Textura de grão — quebra a chapadura dos fundos escuros */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Brilho que percorre o texto em destaque */
+@keyframes text-sheen {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
+.text-sheen {
+  background-image: linear-gradient(
+    100deg,
+    #ffc800 0%,
+    #ffc800 38%,
+    #fff3c4 50%,
+    #ffc800 62%,
+    #ffc800 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: text-sheen 7s linear infinite;
+}
+
+/* Respiro lento do halo de fundo */
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, -4%, 0) scale(1.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-sheen,
+  .aurora {
+    animation: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #13181E;
+}
+::-webkit-scrollbar-thumb {
+  background: #008538;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00692c;
+}
+
+::selection {
+  background: #008538;
+  color: #FFFFFF;
+}
+
+.btn-premium {
+  background-image: linear-gradient(
+    110deg,
+    #00692c 0%,
+    #008538 35%,
+    #17b862 50%,
+    #008538 65%,
+    #00692c 100%
+  );
+  background-size: 250% 100%;
+  background-position: 94% 0;
+  transition: background-position 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-premium:hover {
+  background-position: 6% 0;
+}
