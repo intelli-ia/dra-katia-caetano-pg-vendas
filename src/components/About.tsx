@@ -55,7 +55,7 @@ export default function AboutSection() {
             <div className="relative rounded-[1.75rem] border border-[#13181E]/8 bg-white p-3 shadow-[0_30px_70px_-45px_rgba(19,24,30,0.6)]">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.25rem]">
                 <Image
-                  src="/katia-caetano.png"
+                  src="/katia-caetano.webp"
                   alt="Retrato de Kátia Caetano, psicóloga e criadora do MAPA"
                   fill
                   sizes="(max-width: 1024px) 90vw, 34vw"

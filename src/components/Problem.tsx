@@ -129,7 +129,7 @@ export default function ProblemSection() {
           <div className="flex w-full max-w-lg flex-col rounded-3xl border border-[#13181E]/8 bg-white p-4 shadow-[0_24px_60px_-40px_rgba(19,24,30,0.5)]">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl lg:aspect-auto lg:flex-1">
               <Image
-                src="/conceituacao.png"
+                src="/conceituacao.webp"
                 alt="Psicólogo registrando anotações clínicas em prancheta durante sessão"
                 fill
                 sizes="(max-width: 1024px) 90vw, 40vw"

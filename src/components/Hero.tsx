@@ -23,7 +23,7 @@ export default function HeroSection() {
         {/* Mobile: faixa deslocada para a esquerda. Desktop: largura total */}
         <div className="absolute top-0 left-0 h-[62%] w-full md:h-full">
           <Image
-            src="/hero-bg.png"
+            src="/hero-bg.webp"
             alt=""
             fill
             priority
