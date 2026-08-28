@@ -139,7 +139,7 @@ export default function PricingSection() {
               </div>
 
               <p className="relative mt-5 font-heading text-[4rem] leading-none font-semibold tracking-tight md:text-[6rem]">
-                <span className="text-sheen">R$ 147</span>
+                <span className="text-sheen">R$ 197,00</span>
               </p>
               <p className="relative mt-3 font-heading text-base font-medium tracking-[0.2em] text-white/70 uppercase">
                 à vista
