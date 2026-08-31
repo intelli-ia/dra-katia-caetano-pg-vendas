@@ -23,10 +23,10 @@ const questions = [
 ];
 
 const consequences = [
-  "Reunir muitos dados sem conseguir conectá-los;",
-  "Conhecer várias técnicas, mas não saber qual escolher;",
-  "Conduzir a sessão com sensibilidade e ainda terminar sem clareza sobre o próximo passo;",
-  "Depender de uma resposta externa sempre que o caso foge do esperado.",
+  "Reúne muitos dados sem conseguir conectá-los;",
+  "Conhece várias técnicas, mas não sabe qual escolher;",
+  "Conduz a sessão com sensibilidade e ainda termina sem clareza sobre o próximo passo;",
+  "Depende de uma resposta externa sempre que o caso foge do esperado;",
   "Faz várias formações e ainda se sente insegura(o) e perdida(o) sobre como conduzir o caso.",
 ];
 

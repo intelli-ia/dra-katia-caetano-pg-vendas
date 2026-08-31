@@ -170,9 +170,9 @@ export default function SolutionSection() {
         whileInView="show"
         viewport={viewport}
         transition={{ duration: 0.8, ease }}
-        className="mx-auto mt-16 flex w-full max-w-3xl flex-col items-center gap-5 text-center md:mt-20"
+        className="mx-auto mt-16 flex w-full max-w-3xl flex-col items-start gap-5 text-left md:mt-20 md:items-center md:text-center"
       >
-        <p className="font-heading text-[1.5rem] leading-[1.18] font-medium tracking-tight md:text-[2rem] lg:text-[2.5rem]">
+        <p className="w-full text-center font-heading text-[1.5rem] leading-[1.18] font-medium tracking-tight md:text-[2rem] lg:text-[2.5rem]">
           O MAPA não é uma ficha para preencher mecanicamente.
         </p>
         <p className="text-lg leading-relaxed text-[#13181E]/70 md:text-xl">
