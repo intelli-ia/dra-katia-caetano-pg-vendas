@@ -166,7 +166,7 @@ export default function FAQSection() {
           transition={{ duration: 0.7, ease, delay: 0.1 }}
           className="mt-10 flex justify-center md:mt-12"
         >
-          <CTAButton href="#oferta" label="Quero usar o MAPA na minha clínica" />
+          <CTAButton href="#oferta" label="Quero usar o MAPA em meus atendimentos" mobileLabel="Quero conhecer o MAPA" />
         </motion.div>
       </div>
     </section>

@@ -93,7 +93,8 @@ export default function FinalCTASection() {
           />
           <CTAButton
             href="#oferta"
-            label="Quero usar o MAPA na minha clínica"
+            label="Quero usar o MAPA em meus atendimentos"
+            mobileLabel="Quero conhecer o MAPA"
             className=""
           />
         </motion.div>

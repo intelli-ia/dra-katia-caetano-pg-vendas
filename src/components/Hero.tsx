@@ -78,7 +78,8 @@ export default function HeroSection() {
           >
             <CTAButton
               href="#oferta"
-              label="Quero conhecer o mapa"
+              label="Quero usar o MAPA em meus atendimentos"
+              mobileLabel="Quero conhecer o MAPA"
               className=""
             />
           </motion.div>

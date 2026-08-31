@@ -146,7 +146,8 @@ export default function PricingSection() {
               <div className="relative mt-8">
                 <CTAButton
                   href={CTA_LINK}
-                  label="Quero entrar no MAPA"
+                  label="Quero usar o MAPA em meus atendimentos"
+                  mobileLabel="Quero conhecer o MAPA"
                   className="w-full"
                 />
               </div>

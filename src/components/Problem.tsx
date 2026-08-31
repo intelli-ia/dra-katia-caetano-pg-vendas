@@ -222,7 +222,7 @@ export default function ProblemSection() {
           você a construir.
         </p>
         <div className="mt-8 md:mt-10">
-          <CTAButton href="#oferta" label="Quero usar o MAPA na minha clínica" />
+          <CTAButton href="#oferta" label="Quero usar o MAPA em meus atendimentos" mobileLabel="Quero conhecer o MAPA" />
         </div>
       </motion.div>
     </section>

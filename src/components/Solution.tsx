@@ -195,7 +195,8 @@ export default function SolutionSection() {
         <div className="mt-4">
           <CTAButton
             href="#oferta"
-            label="Quero aprender a usar o MAPA"
+            label="Quero usar o MAPA em meus atendimentos"
+            mobileLabel="Quero conhecer o MAPA"
             className=""
           />
         </div>
