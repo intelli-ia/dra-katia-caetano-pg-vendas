@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { CTA_LINK } from "@/lib/constants";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -78,9 +77,9 @@ export default function HeroSection() {
             className="mt-7 md:mt-10"
           >
             <CTAButton
-              href={CTA_LINK}
+              href="#oferta"
               label="Quero conhecer o mapa"
-              className="px-5 py-2 text-xs md:px-7 md:py-3 md:text-sm"
+              className=""
             />
           </motion.div>
         </motion.div>

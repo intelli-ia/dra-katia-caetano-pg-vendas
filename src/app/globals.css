@@ -3,9 +3,11 @@
 :root {
   --background: #13181E;
   --foreground: #FFFFFF;
+  --accent-green: #c5f83a;
 }
 
 @theme inline {
+  --color-accent-green: var(--accent-green);
   --color-bg-inner: #1A212B;
   --color-bg-outer: #13181E;
   --color-secondary: #008538;

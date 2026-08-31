@@ -21,6 +21,23 @@ export function CTAButton({
   className = "",
   size = "default",
 }: CTAButtonProps) {
+  if (href.startsWith("#")) {
+    const id = href.slice(1);
+    return (
+      <Button
+        variant="gold"
+        size={size}
+        className={className}
+        onClick={() =>
+          document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+        }
+      >
+        {label}
+        <ArrowRight className={size === "sm" ? "h-3.5 w-3.5" : "h-5 w-5"} />
+      </Button>
+    );
+  }
+
   return (
     <Button asChild variant="gold" size={size} className={className}>
       <Link href={href} target={target} rel={rel}>

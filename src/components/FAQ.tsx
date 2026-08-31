@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import { CTAButton } from "@/components/ui/CTAButton";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -22,7 +23,7 @@ const faqs = [
   {
     question: "Para quem é o MAPA?",
     answer:
-      "Para psicólogas que atuam ou desejam atuar com TCC e querem desenvolver mais clareza na formulação de casos, na escolha das técnicas e na definição dos próximos passos do tratamento — independentemente da fase da carreira.",
+      "Para psicólogas que atuam ou desejam atuar com TCC e querem desenvolver mais clareza e segurança na formulação de casos, na escolha das técnicas e na definição dos próximos passos do tratamento — independentemente da fase da carreira.",
   },
   {
     question: "Preciso estar no início da carreira para aproveitar?",
@@ -83,7 +84,7 @@ export default function FAQSection() {
           whileInView="show"
           viewport={viewport}
           transition={{ duration: 0.8, ease }}
-          className="text-center font-heading text-[1.75rem] leading-[1.18] font-medium tracking-tight text-balance md:text-[2rem] lg:text-[2.5rem]"
+          className="text-center font-heading text-[1.875rem] leading-[1.18] font-medium tracking-tight text-balance md:text-[2.5rem] lg:text-[3rem]"
         >
           Perguntas <span className="text-[#008538]">frequentes</span>
         </motion.h2>
@@ -115,7 +116,7 @@ export default function FAQSection() {
                     className="flex w-full cursor-pointer items-center justify-between gap-5 px-6 py-5 text-left md:px-7 md:py-6"
                   >
                     <span
-                      className={`font-heading text-base leading-snug font-semibold tracking-tight transition-colors duration-300 md:text-lg ${
+                      className={`font-heading text-lg leading-snug font-semibold tracking-tight transition-colors duration-300 md:text-xl ${
                         isOpen ? "text-[#008538]" : "text-[#13181E]"
                       }`}
                     >
@@ -145,7 +146,7 @@ export default function FAQSection() {
                       >
                         <div className="px-6 pb-6 md:px-7 md:pb-7">
                           <div className="mb-4 h-px w-full bg-gradient-to-r from-[#008538]/30 to-transparent" />
-                          <p className="text-sm leading-relaxed text-[#13181E]/70 md:text-base">
+                          <p className="text-base leading-relaxed text-[#13181E]/70 md:text-lg">
                             {faq.answer}
                           </p>
                         </div>
@@ -157,6 +158,16 @@ export default function FAQSection() {
             );
           })}
         </div>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+          transition={{ duration: 0.7, ease, delay: 0.1 }}
+          className="mt-10 flex justify-center md:mt-12"
+        >
+          <CTAButton href="#oferta" label="Quero usar o MAPA na minha clínica" />
+        </motion.div>
       </div>
     </section>
   );

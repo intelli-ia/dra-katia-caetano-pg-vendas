@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { CTA_LINK } from "@/lib/constants";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -45,7 +44,7 @@ export default function FinalCTASection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
-          className="font-heading text-[1.75rem] leading-[1.2] font-medium tracking-tight text-white text-balance md:text-[2.25rem] lg:text-[2.75rem]"
+          className="font-heading text-[1.875rem] leading-[1.18] font-medium tracking-tight text-white text-balance md:text-[2.5rem] lg:text-[3rem]"
         >
           {lead.map((w, i) => (
             <motion.span
@@ -73,7 +72,7 @@ export default function FinalCTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.8, ease, delay: 0.55 }}
-          className="mt-6 max-w-xl text-base leading-relaxed text-white/65 md:text-lg"
+          className="mt-6 max-w-xl text-lg leading-relaxed text-white/65 md:text-xl"
         >
           Tenha segurança para definir os próximos passos do tratamento.
         </motion.p>
@@ -93,9 +92,9 @@ export default function FinalCTASection() {
             className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-[#008538]/40 blur-2xl"
           />
           <CTAButton
-            href={CTA_LINK}
+            href="#oferta"
             label="Quero usar o MAPA na minha clínica"
-            className="px-7 py-3.5 text-sm md:px-9 md:py-4 md:text-base"
+            className=""
           />
         </motion.div>
       </div>
