@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, type CSSProperties, type MouseEvent } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
@@ -16,6 +15,7 @@ const fadeUp = {
 
 const viewport = { once: true, amount: 0.2 } as const;
 
+
 const deliverables = [
   "8 módulos de raciocínio clínico",
   "Exercícios práticos com casos clínicos",
@@ -25,17 +25,6 @@ const deliverables = [
 ];
 
 export default function PricingSection() {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  // Alimenta o foco de luz que acompanha o cursor dentro do cartão
-  const handleMove = (event: MouseEvent<HTMLDivElement>) => {
-    const el = cardRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    el.style.setProperty("--mx", `${event.clientX - rect.left}px`);
-    el.style.setProperty("--my", `${event.clientY - rect.top}px`);
-  };
-
   return (
     <section
       id="oferta"
@@ -80,31 +69,10 @@ export default function PricingSection() {
           className="mt-10 w-full md:mt-12"
         >
           <div className="group relative">
-            {/* Halo escuro que descola o cartão do fundo dourado — adensa no hover */}
-            <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-[#13181E]/12 blur-2xl transition-all duration-500 group-hover:-inset-6 group-hover:bg-[#13181E]/20" />
 
             <div
-              ref={cardRef}
-              onMouseMove={handleMove}
-              style={{ "--mx": "50%", "--my": "0%" } as CSSProperties}
-              className="section-bg relative z-0 overflow-hidden rounded-[1.75rem] border border-[#13181E]/25 px-7 py-10 pb-[36rem] text-center shadow-[0_40px_80px_-40px_rgba(19,24,30,0.85)] transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:border-[#FFC800]/45 group-hover:shadow-[0_55px_100px_-45px_rgba(19,24,30,0.95)] md:px-9 md:py-12 md:pb-[48rem]"
+              className="section-bg relative z-0 overflow-hidden rounded-[1.75rem] border border-[#13181E]/25 px-7 py-10 pb-16 text-center shadow-[0_40px_80px_-40px_rgba(19,24,30,0.85)] md:px-9 md:py-12 md:pb-20"
             >
-              {/* Foco de luz que segue o cursor */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                style={{
-                  background:
-                    "radial-gradient(420px circle at var(--mx) var(--my), rgba(255,200,0,0.16), transparent 66%)",
-                }}
-              />
-              {/* Lâmina de brilho atravessando o cartão */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent transition-transform duration-[1200ms] ease-out group-hover:translate-x-[320%]"
-              />
-              {/* Contorno interno dourado que acende */}
-              <div className="pointer-events-none absolute inset-0 rounded-[1.75rem] opacity-0 ring-1 ring-[#FFC800]/25 transition-opacity duration-500 ring-inset group-hover:opacity-100" />
               <div className="grain pointer-events-none absolute inset-0 opacity-[0.12] mix-blend-overlay" />
 
               {/* Entregáveis */}
@@ -120,6 +88,18 @@ export default function PricingSection() {
                   </li>
                 ))}
               </ul>
+
+              {/* Mockup — full-bleed dentro do card */}
+              <div className="-mx-7 mt-8 md:-mx-9">
+                <Image
+                  src="/mockup.webp"
+                  alt="Mockup do MAPA — Conceitualização de Casos com Clareza e Direção Clínica"
+                  width={1280}
+                  height={854}
+                  className="w-full object-cover"
+                  priority={false}
+                />
+              </div>
 
               <div className="relative mx-auto mt-8 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
@@ -153,20 +133,20 @@ export default function PricingSection() {
                 />
               </div>
 
+              {/* Faixa de garantia */}
+              <div className="mt-16 flex justify-center">
+                <Image
+                  src="/garantia.webp"
+                  alt="7 dias de garantia — 100% do dinheiro de volta"
+                  width={1200}
+                  height={300}
+                  className="w-1/2 object-cover"
+                />
+              </div>
+
             </div>
           </div>
 
-          {/* Mockup — mais largo que o card, sobreposto ao fundo escuro */}
-          <div className="relative z-10 -mt-[28rem] -mx-2 w-[calc(100%+1rem)] md:-mt-[42rem] md:-mx-8 md:w-[calc(100%+4rem)] lg:-mx-14 lg:w-[calc(100%+7rem)]">
-            <Image
-              src="/mockup.webp"
-              alt="Mockup do MAPA — Conceitualização de Casos com Clareza e Direção Clínica"
-              width={1280}
-              height={854}
-              className="w-full object-cover rounded-2xl"
-              priority={false}
-            />
-          </div>
         </motion.div>
       </div>
 
