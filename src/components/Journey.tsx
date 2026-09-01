@@ -3,6 +3,7 @@
 import { useRef, type MouseEvent } from "react";
 import { motion } from "framer-motion";
 import { CalendarDays, Layers, Video } from "lucide-react";
+import { CTAButton } from "@/components/ui/CTAButton";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -106,11 +107,11 @@ function StageCard({ index, weeks, title, description }: StageCardProps) {
               {weeks}
             </span>
 
-            <h3 className="max-w-[85%] font-heading text-lg leading-snug font-semibold tracking-tight text-white md:text-xl">
+            <h3 className="max-w-[85%] font-heading text-[1.5rem] leading-[1.18] font-semibold tracking-tight text-white md:text-[2rem]">
               {title}
             </h3>
 
-            <p className="text-sm leading-relaxed text-white/60 transition-colors duration-500 group-hover:text-white/75 md:text-[0.95rem]">
+            <p className="text-base leading-relaxed text-white/60 transition-colors duration-500 group-hover:text-white/75 md:text-lg">
               {description}
             </p>
           </div>
@@ -140,7 +141,7 @@ export default function JourneySection() {
           whileInView="show"
           viewport={viewport}
           transition={{ duration: 0.8, ease }}
-          className="max-w-2xl font-heading text-[1.75rem] leading-[1.18] font-medium tracking-tight text-white text-balance md:text-[2rem] lg:text-[2.5rem]"
+          className="max-w-2xl font-heading text-[1.875rem] leading-[1.18] font-medium tracking-tight text-white text-balance md:text-[2.5rem] lg:text-[3rem]"
         >
           Como funciona a{" "}
           <span className="text-[#FFC800]">jornada do MAPA</span>?
@@ -152,7 +153,7 @@ export default function JourneySection() {
           whileInView="show"
           viewport={viewport}
           transition={{ duration: 0.8, ease, delay: 0.1 }}
-          className="mt-5 max-w-xl text-base leading-relaxed text-white/65 md:text-lg"
+          className="mt-5 max-w-xl text-lg leading-relaxed text-white/65 md:text-xl"
         >
           Uma formação em 8 semanas para transformar a conceitualização em
           raciocínio clínico aplicado.
@@ -160,7 +161,7 @@ export default function JourneySection() {
       </div>
 
       {/* ===== Etapas ===== */}
-      <div className="relative z-10 mx-auto mt-14 grid w-full max-w-6xl grid-cols-1 gap-5 md:mt-16 md:grid-cols-2 md:gap-6">
+      <div className="relative z-10 mx-auto mt-14 flex w-full max-w-3xl flex-col gap-5 md:mt-16 md:gap-6">
         {stages.map((stage, i) => (
           <StageCard
             key={stage.title}
@@ -181,7 +182,7 @@ export default function JourneySection() {
           },
           {
             icon: Video,
-            text: "A jornada também conta com 3 encontros ao vivo: um para abrir o percurso, um para acompanhar o desenvolvimento e outro para consolidar a formação.",
+            text: "A jornada também conta com 3 encontros ao vivo: um para abrir o percurso, um para acompanhar o desenvolvimento e outro para consolidar a formação – todos com supervisão ao vivo!",
           },
         ].map((item, i) => (
           <motion.div
@@ -196,7 +197,7 @@ export default function JourneySection() {
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#008538]/15 text-[#008538]">
               <item.icon className="h-5 w-5" />
             </span>
-            <p className="text-sm leading-relaxed text-white/65 md:text-[0.95rem]">
+            <p className="text-base leading-relaxed text-white/65 md:text-lg">
               {item.text}
             </p>
           </motion.div>
@@ -210,7 +211,7 @@ export default function JourneySection() {
         whileInView="show"
         viewport={viewport}
         transition={{ duration: 0.8, ease }}
-        className="relative z-10 mx-auto mt-14 max-w-3xl text-center font-heading text-lg leading-snug font-medium tracking-tight text-white/90 text-balance md:mt-16 md:text-xl"
+        className="relative z-10 mx-auto mt-14 max-w-3xl text-center font-heading text-[1.5rem] leading-[1.18] font-medium tracking-tight text-white/90 text-balance md:mt-16 md:text-[2rem] lg:text-[2.5rem]"
       >
         Do primeiro olhar sobre o caso à construção de uma direção clínica mais
         clara, você percorre uma jornada progressiva para desenvolver{" "}
@@ -219,6 +220,16 @@ export default function JourneySection() {
         </span>{" "}
         na prática.
       </motion.p>
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={viewport}
+        transition={{ duration: 0.7, ease, delay: 0.1 }}
+        className="relative z-10 mt-10 flex justify-center md:mt-12"
+      >
+        <CTAButton href="#oferta" label="Quero usar o MAPA em meus atendimentos" mobileLabel="Quero conhecer o MAPA" />
+      </motion.div>
     </section>
   );
 }

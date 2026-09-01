@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { CTA_LINK } from "@/lib/constants";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -48,12 +47,12 @@ export default function HeroSection() {
           initial="hidden"
           animate="show"
           transition={{ staggerChildren: 0.12, delayChildren: 0.15 }}
-          className="mx-auto flex max-w-[17rem] translate-y-24 flex-col items-start text-left sm:max-w-sm md:translate-y-0 md:ml-12 md:max-w-2xl lg:ml-20"
+          className="mx-auto flex max-w-[90%] translate-y-24 flex-col items-center text-center sm:max-w-md md:translate-y-0 md:ml-12 md:max-w-2xl md:items-start md:text-left lg:ml-20"
         >
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.9, ease }}
-            className="max-w-xl font-heading text-[1.375rem] leading-[1.2] font-medium tracking-tight text-white md:text-[2rem] lg:text-[2.75rem]"
+            className="max-w-xl font-heading text-[1.75rem] leading-[1.2] font-medium tracking-tight text-white md:text-[2rem] lg:text-[2.75rem]"
           >
             Aprenda a formular seus casos com{" "}
             <span className="text-[#FFC800]">clareza</span> e saiba qual caminho
@@ -64,7 +63,7 @@ export default function HeroSection() {
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.8, ease }}
-            className="mt-4 max-w-lg text-sm leading-relaxed font-normal text-white/65 md:mt-6 md:text-lg"
+            className="mt-4 max-w-lg text-base leading-relaxed font-normal text-white/65 md:mt-6 md:text-lg"
           >
             Com o <span className="font-semibold text-white">MAPA</span>, você
             organiza os dados clínicos, visualiza como os elementos do caso se
@@ -78,9 +77,10 @@ export default function HeroSection() {
             className="mt-7 md:mt-10"
           >
             <CTAButton
-              href={CTA_LINK}
-              label="Quero conhecer o mapa"
-              className="px-5 py-2 text-xs md:px-7 md:py-3 md:text-sm"
+              href="#oferta"
+              label="Quero usar o MAPA em meus atendimentos"
+              mobileLabel="Quero conhecer o MAPA"
+              className=""
             />
           </motion.div>
         </motion.div>

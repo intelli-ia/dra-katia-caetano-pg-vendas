@@ -16,6 +16,13 @@ export default function Footer() {
         <p className="text-xs leading-relaxed text-white/40">
           © {year} {SITE_NAME}. Todos os direitos reservados.
         </p>
+        <p className="mt-2 max-w-2xl text-xs leading-relaxed text-white/25">
+          Este site não é afiliado, associado, autorizado, endossado ou de
+          qualquer forma oficialmente vinculado ao Facebook, Instagram, Meta
+          Platforms, Inc. ou a qualquer uma de suas subsidiárias ou afiliadas.
+          Os nomes Facebook e Instagram, bem como as marcas relacionadas, são
+          marcas registradas de seus respectivos proprietários.
+        </p>
       </div>
     </footer>
   );

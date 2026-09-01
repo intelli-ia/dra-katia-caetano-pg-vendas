@@ -103,7 +103,7 @@ export default function PricingSection() {
           <div className="pointer-events-none absolute inset-y-0 left-1/2 w-full max-w-[572px] -translate-x-1/2 rounded-[2rem] bg-[#13181E]/12 blur-2xl transition-all duration-500 group-hover:bg-[#13181E]/20" />
 
           {/* `pb` generoso: sobra deliberada no pé do cartão para a imagem que
-              virá apoiada sobre ele — o conteúdo continua ancorado no topo */}
+              vem apoiada sobre ele — o conteúdo continua ancorado no topo */}
           <div
             ref={cardRef}
             onMouseMove={handleMove}
@@ -163,26 +163,27 @@ export default function PricingSection() {
               <p className="text-base font-light text-white/60 md:text-lg">
                 De{" "}
                 <s className="decoration-[#FFC800]/60 decoration-1">R$ 347</s>{" "}
-                por
+                por apenas:
               </p>
 
-              <p className="mt-3 font-heading text-[11px] font-bold tracking-[0.2em] text-white/60 uppercase md:text-xs">
-                à vista
+              <p className="mt-3 font-heading text-[22px] leading-none font-semibold tracking-tight md:text-[30px]">
+                <span className="text-sheen">12x de</span>
               </p>
               {/* O corpo cai no menor mobile só para o preço caber em uma linha:
                   quebrado em duas ele deixa de ler como preço. */}
               <p className="mt-1.5 font-heading text-[40px] leading-none font-semibold tracking-tight min-[380px]:text-[48px] sm:text-[56px] md:text-[72px]">
-                <span className="text-sheen">R$ 197,00</span>
+                <span className="text-sheen">R$29,70</span>
               </p>
 
               <p className="mt-3 text-base font-light text-white/60 md:text-lg">
-                ou <span className="font-semibold text-white">12x</span> no
-                cartão
+                ou <span className="font-semibold text-white">R$297,00</span> à
+                vista
               </p>
 
               <CTAButton
                 href={CTA_LINK}
-                label="Quero entrar no MAPA"
+                label="Quero usar o MAPA em meus atendimentos"
+                mobileLabel="Quero conhecer o MAPA"
                 className="mt-7 w-full max-w-[420px] px-8 py-4 text-sm md:py-5 md:text-base"
               />
             </div>
