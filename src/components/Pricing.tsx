@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, type CSSProperties, type MouseEvent } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
@@ -86,7 +87,7 @@ export default function PricingSection() {
               ref={cardRef}
               onMouseMove={handleMove}
               style={{ "--mx": "50%", "--my": "0%" } as CSSProperties}
-              className="section-bg relative overflow-hidden rounded-[1.75rem] border border-[#13181E]/25 px-7 py-10 text-center shadow-[0_40px_80px_-40px_rgba(19,24,30,0.85)] transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:border-[#FFC800]/45 group-hover:shadow-[0_55px_100px_-45px_rgba(19,24,30,0.95)] md:px-9 md:py-12"
+              className="section-bg relative z-0 overflow-hidden rounded-[1.75rem] border border-[#13181E]/25 px-7 py-10 pb-[36rem] text-center shadow-[0_40px_80px_-40px_rgba(19,24,30,0.85)] transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:border-[#FFC800]/45 group-hover:shadow-[0_55px_100px_-45px_rgba(19,24,30,0.95)] md:px-9 md:py-12 md:pb-[48rem]"
             >
               {/* Foco de luz que segue o cursor */}
               <div
@@ -152,14 +153,23 @@ export default function PricingSection() {
                 />
               </div>
 
-              {/* Imagem placeholder — último elemento */}
-              <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] flex items-center justify-center">
-                <span className="text-sm text-white/30">imagem do produto</span>
-              </div>
             </div>
+          </div>
+
+          {/* Mockup — mais largo que o card, sobreposto ao fundo escuro */}
+          <div className="relative z-10 -mt-[28rem] -mx-2 w-[calc(100%+1rem)] md:-mt-[42rem] md:-mx-8 md:w-[calc(100%+4rem)] lg:-mx-14 lg:w-[calc(100%+7rem)]">
+            <Image
+              src="/mockup.webp"
+              alt="Mockup do MAPA — Conceitualização de Casos com Clareza e Direção Clínica"
+              width={1280}
+              height={854}
+              className="w-full object-cover rounded-2xl"
+              priority={false}
+            />
           </div>
         </motion.div>
       </div>
+
     </section>
   );
 }
