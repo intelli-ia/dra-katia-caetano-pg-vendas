@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, type CSSProperties, type MouseEvent } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
@@ -38,7 +39,7 @@ export default function PricingSection() {
   return (
     <section
       id="oferta"
-      className="relative w-full overflow-hidden px-6 py-20 text-[#13181E] md:py-28"
+      className="relative w-full overflow-hidden px-6 pt-24 pb-52 text-[#13181E] md:pt-36 md:pb-64"
       style={{
         background:
           "radial-gradient(circle at 50% 30%, #FFD84D 0%, #FFC800 55%, #F0B800 100%)",
@@ -56,110 +57,152 @@ export default function PricingSection() {
       />
       <div className="grain pointer-events-none absolute inset-0 z-0 opacity-[0.12] mix-blend-multiply" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-        {/* ===== Coluna esquerda: o que está incluso ===== */}
-        <div className="lg:col-span-6">
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={viewport}
-            transition={{ duration: 0.8, ease }}
-            className="max-w-lg font-heading text-[1.75rem] leading-[1.16] font-semibold tracking-tight text-balance md:text-[2rem] lg:text-[2.5rem]"
-          >
-            Ao entrar no MAPA, você recebe:
-          </motion.h2>
+      {/* Costura entre a seção escura que termina e o dourado que começa */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-px bg-[#13181E] opacity-25"
+      />
 
-          <ul className="mt-9 flex flex-col gap-4 md:mt-10">
-            {deliverables.map((item, i) => (
-              <motion.li
-                key={item}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={viewport}
-                transition={{ duration: 0.65, ease, delay: 0.08 * i }}
-                className="flex items-start gap-4"
-              >
-                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#13181E] text-[#FFC800] shadow-[0_6px_16px_-8px_rgba(19,24,30,0.9)]">
-                  <Check className="h-4 w-4" strokeWidth={3} />
-                </span>
-                <p className="text-base leading-relaxed font-medium text-[#13181E]/85 md:text-lg">
-                  {item}
-                </p>
-              </motion.li>
-            ))}
-          </ul>
-        </div>
+      {/* Clareira atrás do cartão: o dourado adensa no centro e o cartão escuro
+          passa a flutuar sobre ele, em vez de boiar num chapado. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-[18%] left-1/2 h-[720px] w-[1100px] -translate-x-1/2 rounded-full bg-[#13181E] opacity-[0.10] blur-[130px]"
+      />
 
-        {/* ===== Coluna direita: o preço ===== */}
+      <div className="relative z-10 mx-auto max-w-[880px]">
+        {/* ── Manchete ─────────────────────────────── */}
+        {/* Fica sobre o dourado, fora do cartão: é a última fala da seção, e o
+            cartão logo abaixo é a resposta a ela. */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          transition={{ duration: 0.9, ease, delay: 0.15 }}
-          className="lg:col-span-6"
+          transition={{ duration: 0.8, ease }}
         >
-          <div className="group relative">
-            {/* Halo escuro que descola o cartão do fundo dourado — adensa no hover */}
-            <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-[#13181E]/12 blur-2xl transition-all duration-500 group-hover:-inset-6 group-hover:bg-[#13181E]/20" />
+          <h2 className="mx-auto max-w-[720px] text-center font-heading text-[34px] leading-[1.1] font-semibold tracking-tight text-balance sm:text-[42px] md:text-[56px]">
+            Ao entrar no MAPA, você recebe:
+          </h2>
+          <div
+            aria-hidden
+            className="mx-auto mt-7 h-px w-[110px] bg-[#13181E] opacity-40 md:mt-8"
+          />
+        </motion.div>
 
+        {/* ── Cartão da oferta ─────────────────────── */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+          transition={{ duration: 0.9, ease, delay: 0.14 }}
+          className="group relative mt-14 md:mt-16"
+        >
+          {/* Halo escuro que descola o cartão do fundo dourado — adensa no hover */}
+          <div className="pointer-events-none absolute inset-y-0 left-1/2 w-full max-w-[572px] -translate-x-1/2 rounded-[2rem] bg-[#13181E]/12 blur-2xl transition-all duration-500 group-hover:bg-[#13181E]/20" />
+
+          {/* `pb` generoso: sobra deliberada no pé do cartão para a imagem que
+              virá apoiada sobre ele — o conteúdo continua ancorado no topo */}
+          <div
+            ref={cardRef}
+            onMouseMove={handleMove}
+            style={{ "--mx": "50%", "--my": "0%" } as CSSProperties}
+            className="section-bg relative mx-auto max-w-[540px] overflow-hidden rounded-[20px] border border-[#13181E]/25 px-6 pt-9 pb-48 shadow-[0_50px_110px_-45px_rgba(19,24,30,0.85)] transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:border-[#FFC800]/45 group-hover:shadow-[0_60px_120px_-45px_rgba(19,24,30,0.95)] md:px-12 md:pt-11 md:pb-84"
+          >
+            {/* Aresta dourada: o único ouro estrutural do cartão */}
             <div
-              ref={cardRef}
-              onMouseMove={handleMove}
-              style={{ "--mx": "50%", "--my": "0%" } as CSSProperties}
-              className="section-bg relative overflow-hidden rounded-[1.75rem] border border-[#13181E]/25 px-7 py-10 text-center shadow-[0_40px_80px_-40px_rgba(19,24,30,0.85)] transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:border-[#FFC800]/45 group-hover:shadow-[0_55px_100px_-45px_rgba(19,24,30,0.95)] md:px-9 md:py-12"
-            >
-              {/* Foco de luz que segue o cursor */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                style={{
-                  background:
-                    "radial-gradient(420px circle at var(--mx) var(--my), rgba(255,200,0,0.16), transparent 66%)",
-                }}
-              />
-              {/* Lâmina de brilho atravessando o cartão */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent transition-transform duration-[1200ms] ease-out group-hover:translate-x-[320%]"
-              />
-              {/* Contorno interno dourado que acende */}
-              <div className="pointer-events-none absolute inset-0 rounded-[1.75rem] opacity-0 ring-1 ring-[#FFC800]/25 transition-opacity duration-500 ring-inset group-hover:opacity-100" />
-              <div className="grain pointer-events-none absolute inset-0 opacity-[0.12] mix-blend-overlay" />
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-[#FFC800] to-transparent"
+            />
 
-              {/* Preço anterior */}
-              <div className="relative flex items-center justify-center gap-2 text-sm text-white/45 md:text-base">
-                <span>De</span>
-                <span className="font-heading font-medium text-white/60 line-through decoration-[#FFC800]/60 decoration-2">
-                  R$ 347
-                </span>
-                <span>por:</span>
-              </div>
+            {/* Foco de luz que segue o cursor */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                background:
+                  "radial-gradient(420px circle at var(--mx) var(--my), rgba(255,200,0,0.16), transparent 66%)",
+              }}
+            />
+            {/* Lâmina de brilho atravessando o cartão */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent transition-transform duration-[1200ms] ease-out group-hover:translate-x-[320%]"
+            />
+            {/* Contorno interno dourado que acende */}
+            <div className="pointer-events-none absolute inset-0 rounded-[20px] opacity-0 ring-1 ring-[#FFC800]/25 transition-opacity duration-500 ring-inset group-hover:opacity-100" />
+            <div className="grain pointer-events-none absolute inset-0 opacity-[0.12] mix-blend-overlay" />
 
-              <p className="relative mt-5 font-heading text-[4rem] leading-none font-semibold tracking-tight md:text-[6rem]">
-                <span className="text-sheen">R$ 197,00</span>
+            {/* ── Entregas ───────────────────────────── */}
+            {/* Coluna única: a lista é a espinha do cartão, e duas colunas
+                quebrariam a leitura de cima a baixo que desemboca no preço. */}
+            <ul className="relative mx-auto max-w-[480px] space-y-1">
+              {deliverables.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-4 rounded-lg border border-transparent px-4 py-1.5"
+                >
+                  {/* Selo cheio, com o traço escuro: o dourado vazado sobre o
+                      cartão quase some, e preenchido ele ainda vira ouro. */}
+                  <span
+                    aria-hidden
+                    className="flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#FFC800] text-[#13181E]"
+                  >
+                    <Check className="size-3.5" strokeWidth={3} />
+                  </span>
+                  <span className="text-[15px] leading-snug font-light text-white md:text-[17px]">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            {/* ── Preço ──────────────────────────────── */}
+            <div className="relative mt-7 border-t border-white/10 pt-7 text-center md:mt-8 md:pt-8">
+              <p className="text-base font-light text-white/60 md:text-lg">
+                De{" "}
+                <s className="decoration-[#FFC800]/60 decoration-1">R$ 347</s>{" "}
+                por
               </p>
-              <p className="relative mt-3 font-heading text-base font-medium tracking-[0.2em] text-white/70 uppercase">
+
+              <p className="mt-3 font-heading text-[11px] font-bold tracking-[0.2em] text-white/60 uppercase md:text-xs">
                 à vista
               </p>
+              {/* O corpo cai no menor mobile só para o preço caber em uma linha:
+                  quebrado em duas ele deixa de ler como preço. */}
+              <p className="mt-1.5 font-heading text-[40px] leading-none font-semibold tracking-tight min-[380px]:text-[48px] sm:text-[56px] md:text-[72px]">
+                <span className="text-sheen">R$ 197,00</span>
+              </p>
 
-              <div className="relative mx-auto mt-6 h-px w-24 bg-gradient-to-r from-transparent via-[#FFC800]/50 to-transparent" />
-
-              <p className="relative mt-6 text-base text-white/70 md:text-lg">
+              <p className="mt-3 text-base font-light text-white/60 md:text-lg">
                 ou <span className="font-semibold text-white">12x</span> no
                 cartão
               </p>
 
-              <div className="relative mt-8">
-                <CTAButton
-                  href={CTA_LINK}
-                  label="Quero entrar no MAPA"
-                  className="w-full px-6 py-3 text-sm md:py-3.5 md:text-base"
-                />
-              </div>
+              <CTAButton
+                href={CTA_LINK}
+                label="Quero entrar no MAPA"
+                className="mt-7 w-full max-w-[420px] px-8 py-4 text-sm md:py-5 md:text-base"
+              />
             </div>
+          </div>
+
+          {/* ── Prévia da área de membros ──────────── */}
+          {/* Sobreposta ao cartão, não empurrada por ele: fica em `absolute`
+              ancorada no rodapé, ocupando exatamente a sobra do `pb`. Por isso
+              é irmã do cartão, e não filha — o `overflow-hidden` de lá cortaria
+              a sangria lateral. */}
+          <div className="pointer-events-none absolute -bottom-36 left-1/2 z-20 w-[112%] max-w-[640px] -translate-x-1/2">
+            <Image
+              src="/Group%201171276940.png"
+              alt="A área de membros do MAPA aberta em notebook, tablet e celular"
+              width={1970}
+              height={1288}
+              sizes="(max-width: 640px) 100vw, 640px"
+              draggable={false}
+              className="block h-auto w-full select-none"
+            />
           </div>
         </motion.div>
       </div>
