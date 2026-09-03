@@ -86,7 +86,7 @@ export default function AboutSection() {
             transition={{ duration: 0.8, ease }}
             className="font-heading text-[1.875rem] leading-[1.18] font-medium tracking-tight md:text-[2.5rem] lg:text-[3rem]"
           >
-            Prazer, sou a <span className="text-[#008538]">Kátia Caetano</span>.
+            Eu sou <span className="text-[#008538]">Kátia Caetano</span>
           </motion.h2>
 
           <motion.span
@@ -113,6 +113,19 @@ export default function AboutSection() {
               EUA). Fiz estágio de doutorado na Boston University, sob
               supervisão do Dr. Stefan Hofmann.
             </p>
+            <p>
+              No início da minha carreira, mesmo tendo estudado bastante, também
+              passei pela insegurança de não saber como organizar tudo o que um
+              paciente trazia para a sessão ou qual caminho seguir no tratamento.
+              Eu me sentia perdida e insegura sobre como estruturar as
+              informações e qual técnica eu deveria utilizar nas sessões.
+            </p>
+            <p>
+              Foi na clínica, na pesquisa e na formação de outros profissionais
+              que desenvolvi uma forma visual de transformar dados clínicos em
+              hipóteses mais claras. Assim nasceu o{" "}
+              <span className="font-semibold text-[#13181E]">MAPA</span>.
+            </p>
           </motion.div>
 
           <motion.p
@@ -123,8 +136,9 @@ export default function AboutSection() {
             transition={{ duration: 0.8, ease, delay: 0.2 }}
             className="mt-8 border-l-2 border-[#008538]/40 pl-5 text-lg leading-relaxed font-medium text-[#13181E] md:text-xl"
           >
-            Tenho 20 anos de experiência entre prática clínica, docência e
-            supervisão de psicólogos.
+            Hoje, reúno essa experiência em um método para ajudar você a
+            desenvolver mais clareza, lógica e segurança na condução dos seus
+            casos.
           </motion.p>
         </div>
       </div>
