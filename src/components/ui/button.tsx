@@ -8,7 +8,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        gold: "btn-premium text-[#FFC800] tracking-wide shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_14px_34px_-8px_rgba(0,133,56,0.65)] hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_20px_44px_-8px_rgba(0,133,56,0.8)] active:translate-y-0.5 active:scale-100",
+        gold: "btn-premium text-white tracking-wide shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_14px_34px_-8px_rgba(0,133,56,0.65)] hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_20px_44px_-8px_rgba(0,133,56,0.8)] active:translate-y-0.5 active:scale-100",
         outline:
           "border-2 border-[#008538] text-[#008538] tracking-wide hover:bg-[#008538] hover:text-[#FFC800] hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-8px_rgba(0,133,56,0.45)] active:translate-y-0.5",
         ghost: "text-[#008538] hover:bg-[#008538]/10 active:translate-y-0.5",
