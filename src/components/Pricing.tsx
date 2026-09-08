@@ -194,7 +194,7 @@ export default function PricingSection() {
               ancorada no rodapé, ocupando exatamente a sobra do `pb`. Por isso
               é irmã do cartão, e não filha — o `overflow-hidden` de lá cortaria
               a sangria lateral. */}
-          <div className="pointer-events-none absolute -bottom-36 left-1/2 z-20 w-[112%] max-w-[640px] -translate-x-1/2">
+          <div className="pointer-events-none absolute -bottom-36 left-1/2 z-20 w-[112%] max-w-[640px] -translate-x-1/2 md:-bottom-48">
             <Image
               src="/Group%201171276940.png"
               alt="A área de membros do MAPA aberta em notebook, tablet e celular"
